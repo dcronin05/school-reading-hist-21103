@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>U.S. History to 1877 - Reader</title>
+  <meta name="description" content="A beautiful, distraction-free markdown reader with reading progress tracking, custom themes, and typography settings.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=4">
+  
+  <!-- Third-party CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="theme-dark font-sans sidebar-open">
+  <!-- Reading Progress Bar -->
+  <div id="progressBarContainer" class="progress-bar-container">
+    <div id="progressBar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+  </div>
+
+  <!-- App Wrapper -->
+  <div class="app-layout">
+    
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <i data-lucide="book-open"></i>
+          <span>U.S. History to 1877</span>
+        </div>
+        <button id="closeSidebarBtn" class="icon-btn close-sidebar-btn" aria-label="Close sidebar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <!-- Search & Filter -->
+      <div class="sidebar-search">
+        <div class="search-input-wrapper">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" id="searchInput" placeholder="Search books..." aria-label="Search books">
+        </div>
+      </div>
+
+      <!-- Book List Section -->
+      <nav class="book-list-container">
+        <h3>Library</h3>
+        <ul id="bookList" class="book-list">
+          <li class="loading-state">
+            <div class="spinner"></div>
+            Loading library...
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Footer / Upload -->
+      <div class="sidebar-footer">
+        <div id="dropzone" class="upload-zone">
+          <i data-lucide="upload-cloud"></i>
+          <p>Drag & drop a <code>.md</code> file here, or click to load locally.</p>
+          <input type="file" id="fileInput" accept=".md" class="hidden-file-input" aria-label="Upload custom markdown file">
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      
+      <!-- Top Navigation Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <button id="toggleSidebarBtn" class="icon-btn menu-btn" aria-label="Toggle sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="current-book-info">
+            <h2 id="headerBookTitle" class="header-book-title">Select a Book</h2>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Reading Mode Status -->
+          <div class="reading-stats">
+            <span id="readingTime" class="stat-badge"><i data-lucide="clock"></i> 0 min read</span>
+            <span id="progressPercentage" class="stat-badge"><i data-lucide="compass"></i> 0%</span>
+          </div>
+
+          <!-- Controls Button -->
+          <button id="settingsBtn" class="icon-btn text-controls-btn" aria-label="Customize layout and text">
+            <i data-lucide="sliders"></i>
+          </button>
+          
+          <!-- Outline/TOC Toggle -->
+          <button id="tocToggleBtn" class="icon-btn outline-btn" aria-label="Table of Contents">
+            <i data-lucide="list-ordered"></i>
+          </button>
+          
+          <!-- Settings Panel (Dropdown) -->
+          <div id="settingsPanel" class="settings-panel hidden">
+            <div class="panel-section">
+              <h4>Theme</h4>
+              <div class="theme-buttons">
+                <button class="theme-btn theme-light-btn" data-theme="light">
+                  <div class="theme-preview bg-light"></div>
+                  <span>Light</span>
+                </button>
+                <button class="theme-btn theme-sepia-btn active" data-theme="sepia">
+                  <div class="theme-preview bg-sepia"></div>
+                  <span>Sepia</span>
+                </button>
+                <button class="theme-btn theme-dark-btn" data-theme="dark">
+                  <div class="theme-preview bg-dark"></div>
+                  <span>Dark</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="panel-section">
+              <h4>Typography</h4>
+              <div class="font-buttons">
+                <button id="fontSerifBtn" class="font-btn font-serif-btn active">Serif</button>
+                <button id="fontSansBtn" class="font-btn font-sans-btn">Sans-Serif</button>
+              </div>
+            </div>
+
+            <div class="panel-section">
+              <h4>Text Size</h4>
+              <div class="size-controls">
+                <button id="decreaseTextBtn" class="size-btn" aria-label="Decrease text size"><i data-lucide="minus"></i></button>
+                <span id="textSizeDisplay" class="size-display">100%</span>
+                <button id="increaseTextBtn" class="size-btn" aria-label="Increase text size"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Reading Window -->
+      <main class="reading-container">
+        <article id="readingArticle" class="reading-article">
+          <!-- Dynamic Content Loaded Here -->
+          <div class="empty-state">
+            <i data-lucide="book-open-check" class="empty-state-icon"></i>
+            <h2>Welcome to your Reader!</h2>
+            <p>Please select a book from the library in the sidebar to start reading.</p>
+            <p class="small">Or drag a local Markdown file into the sidebar to upload.</p>
+          </div>
+        </article>
+      </main>
+
+      <!-- Floating Progress Badge -->
+      <div id="floatingProgress" class="floating-progress-badge">
+        <i data-lucide="compass"></i>
+        <span id="floatingProgressText">0%</span>
+      </div>
+    </div>
+
+    <!-- Table of Contents Panel (Right Drawer) -->
+    <aside id="tocPanel" class="toc-panel">
+      <div class="toc-header">
+        <h3>Table of Contents</h3>
+        <button id="closeTocBtn" class="icon-btn close-toc-btn" aria-label="Close table of contents">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <nav class="toc-content">
+        <ul id="tocList" class="toc-list">
+          <li class="empty-toc">No headings in this book</li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div>
+
+  <!-- Javascript File -->
+  <script src="app.js?v=4"></script>
+</body>
+</html>

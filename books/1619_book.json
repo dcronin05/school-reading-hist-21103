@@ -1,0 +1,87 @@
+{
+  "id": "1619_book",
+  "title": "1619: Jamestown and the Forging of American Democracy",
+  "isBook": true,
+  "chapters": [
+    {
+      "filename": "1619_sec_01.md",
+      "title": "Cover"
+    },
+    {
+      "filename": "1619_sec_02.md",
+      "title": "Title Page"
+    },
+    {
+      "filename": "1619_sec_03.md",
+      "title": "Copyright & Legal"
+    },
+    {
+      "filename": "1619_sec_04.md",
+      "title": "Contents"
+    },
+    {
+      "filename": "1619_sec_05.md",
+      "title": "Dedication"
+    },
+    {
+      "filename": "1619_sec_06.md",
+      "title": "Epigraph"
+    },
+    {
+      "filename": "1619_sec_07.md",
+      "title": "Preface"
+    },
+    {
+      "filename": "1619_sec_08.md",
+      "title": "Author's Note"
+    },
+    {
+      "filename": "1619_sec_09.md",
+      "title": "Introduction"
+    },
+    {
+      "filename": "1619_sec_10.md",
+      "title": "Chapter One: Jamestown"
+    },
+    {
+      "filename": "1619_sec_11.md",
+      "title": "Chapter Two: The Great Reforms"
+    },
+    {
+      "filename": "1619_sec_12.md",
+      "title": "Chapter Three: First Africans"
+    },
+    {
+      "filename": "1619_sec_13.md",
+      "title": "Chapter Four: Commonwealth"
+    },
+    {
+      "filename": "1619_sec_14.md",
+      "title": "Chapter Five: Tumult and Liberty"
+    },
+    {
+      "filename": "1619_sec_15.md",
+      "title": "Chapter Six: Inequality and Freedom"
+    },
+    {
+      "filename": "1619_sec_16.md",
+      "title": "Epilogue: After 1619"
+    },
+    {
+      "filename": "1619_sec_17.md",
+      "title": "Acknowledgements"
+    },
+    {
+      "filename": "1619_sec_18.md",
+      "title": "About the Author"
+    },
+    {
+      "filename": "1619_sec_19.md",
+      "title": "Notes & References"
+    },
+    {
+      "filename": "1619_sec_20.md",
+      "title": "Index"
+    }
+  ]
+}
