@@ -62,17 +62,18 @@ To configure the server to run silently in the background whenever your computer
 1. Search for **PowerShell** in the Start Menu, right-click, and select **Run as Administrator**.
 2. Run the setup script:
    ```powershell
-   cd \\tower\Users\dcron\app_development\school-reading
+   cd \path\to\school-reading
    .\setup_auto_start.ps1
    ```
 
 ---
 
 ## 📂 Project Structure
-* [index.html](file:///tower/Users/dcron/app_development/school-reading/index.html) - Application shell and interface markup.
-* [style.css](file:///tower/Users/dcron/app_development/school-reading/style.css) - Custom responsive stylesheet and theme definitions.
-* [app.js](file:///tower/Users/dcron/app_development/school-reading/app.js) - Client-side core logic (SPA rendering, progress tracking, and scroll-to-footnotes).
-* [server.py](file:///tower/Users/dcron/app_development/school-reading/server.py) - Minimal Python HTTP and API directory server.
-* [start_resilient.ps1](file:///tower/Users/dcron/app_development/school-reading/start_resilient.ps1) - Port clearing and server loop daemon.
-* [setup_auto_start.ps1](file:///tower/Users/dcron/app_development/school-reading/setup_auto_start.ps1) - Windows task scheduler configuration utility.
-* [books/](file:///tower/Users/dcron/app_development/school-reading/books) - Holds JSON book lists, chapter markdown files, and illustration images.
+* [index.html](./index.html) - Application shell and interface markup.
+* [style.css](./style.css) - Custom responsive stylesheet and theme definitions.
+* [app.js](./app.js) - Client-side core logic (SPA rendering, progress tracking, and scroll-to-footnotes).
+* [server.py](./server.py) - Minimal Python HTTP and API directory server.
+* [start_resilient.ps1](./start_resilient.ps1) - Port clearing and server loop daemon.
+* [setup_auto_start.ps1](./setup_auto_start.ps1) - Windows task scheduler configuration utility.
+* [books/](./books) - Holds JSON book lists, chapter markdown files, and illustration images.
+

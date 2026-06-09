@@ -6,30 +6,28 @@ A beautiful, distraction-free reading application designed to serve markdown fil
 
 ## 📂 Project Structure
 
-All files are located in your network development folder:
-- **Main Shell**: [index.html](file:///tower/Users/dcron/app_development/school-reading/index.html)
-- **Styling**: [style.css](file:///tower/Users/dcron/app_development/school-reading/style.css)
-- **Frontend Logic**: [app.js](file:///tower/Users/dcron/app_development/school-reading/app.js)
-- **Python Backend**: [server.py](file:///tower/Users/dcron/app_development/school-reading/server.py)
+All files are located in the project folder:
+- **Main Shell**: [index.html](../index.html)
+- **Styling**: [style.css](../style.css)
+- **Frontend Logic**: [app.js](../app.js)
+- **Python Backend**: [server.py](../server.py)
 - **Library Content**:
-  - [books/welcome.md](file:///tower/Users/dcron/app_development/school-reading/books/welcome.md) (App introduction & features)
-  - [books/alice_in_wonderland.md](file:///tower/Users/dcron/app_development/school-reading/books/alice_in_wonderland.md) (Sample book - Chapter 1)
   - **1619 Book Readings (Structured)**:
-    - [books/1619_book.json](file:///tower/Users/dcron/app_development/school-reading/books/1619_book.json) (Book structure mapping)
-    - [books/1619_sec_01.md](file:///tower/Users/dcron/app_development/school-reading/books/1619_sec_01.md) through `1619_sec_20.md` (Extracted chapters/sections)
-    - [books/images/](file:///tower/Users/dcron/app_development/school-reading/books/images) (Extracted EPUB images)
+    - [books/1619_book.json](../books/1619_book.json) (Book structure mapping)
+    - [books/1619_sec_01.md](../books/1619_sec_01.md) through `1619_sec_20.md` (Extracted chapters/sections)
+    - [books/images/](../books/images) (Extracted EPUB images)
 
 ---
 
 ## 🛠️ Tech Stack & Architecture
 
-- **Backend**: Single-file Python script ([server.py](file:///tower/Users/dcron/app_development/school-reading/server.py)) that:
+- **Backend**: Single-file Python script ([server.py](../server.py)) that:
   - Serves static files from the project directory.
   - Exposes an API endpoint (`/api/books`) that reads all `.json` files in `books/` (representing structured books with chapters) and loose `.md` files.
   - Automatically excludes any `.md` file that belongs to a book outline from the top-level list, serving a nested layout.
   - Zero third-party dependencies required.
-- **Frontend Layout**: Semantic HTML5 ([index.html](file:///tower/Users/dcron/app_development/school-reading/index.html)) styled with a custom CSS design system ([style.css](file:///tower/Users/dcron/app_development/school-reading/style.css)).
-- **Frontend Core**: JavaScript module ([app.js](file:///tower/Users/dcron/app_development/school-reading/app.js)) that handles:
+- **Frontend Layout**: Semantic HTML5 ([index.html](../index.html)) styled with a custom CSS design system ([style.css](../style.css)).
+- **Frontend Core**: JavaScript module ([app.js](../app.js)) that handles:
   - Markdown-to-HTML conversion via [Marked.js](https://cdn.jsdelivr.net/npm/marked/marked.min.js) loaded via CDN.
   - HTML sanitization via [DOMPurify](https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js) to keep custom/local uploads safe.
   - Interface iconography using [Lucide Icons](https://unpkg.com/lucide@latest).

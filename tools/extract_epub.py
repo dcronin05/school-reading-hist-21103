@@ -6,12 +6,10 @@ import json
 import shutil
 from html.parser import HTMLParser
 
-epub_path = r"C:\Users\dcronin05\hist-21103-notes\sources\processed\Horn, James - 1619- Jamestown and the Forging of American Democracy.epub"
-dest_dir = r"\\tower\Users\dcron\app_development\school-reading\books"
+# UPDATE THESE PATHS TO YOUR LOCAL EPUB AND DESTINATION DIRECTORIES
+epub_path = r"C:\path\to\your\book.epub"
+dest_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "books")
 images_dest_dir = os.path.join(dest_dir, "images")
-
-os.makedirs(dest_dir, exist_ok=True)
-os.makedirs(images_dest_dir, exist_ok=True)
 
 # Defining the exact chapter section maps
 SECTIONS = [
@@ -166,6 +164,8 @@ class HTMLToMarkdown(HTMLParser):
         return text.strip()
 
 def main():
+    os.makedirs(dest_dir, exist_ok=True)
+    os.makedirs(images_dest_dir, exist_ok=True)
     print(f"Opening EPUB file: {epub_path}")
     with zipfile.ZipFile(epub_path, 'r') as z:
         # Extract images first
